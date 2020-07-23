@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="./src/css/fontawesome.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style_admin.css">
+    <link rel="stylesheet" href="css/styles.css">
+
+    <script type="text/javascript">
+        function solonumeros(e) {
+            key = e.keyCode || e.which;
+            teclado = String.fromCharCode(key);
+            numerosa = "0123456789";
+            especiales = "8-37-38-46";
+            teclado_especial = false;
+            for (var i in especiales) {
+                if (key == especiales[i]) {
+                    teclado_especial = true;
+                }
+            }
+
+            if (numerosa.indexOf(teclado) == -1 && !teclado_especial) {
+                return false;
+            }
+        }
+        function sololetras(e) {
+            key = e.keyCode || e.which;
+            teclado = String.fromCharCode(key).toLowerCase();
+            letras = "abcdefghigklmnñopqrstuvwxyz";
+            especiales = "8-37-38-46";
+            teclado_especial = false;
+            for (var i in especiales) {
+                if (key == especiales[i]) {
+                    teclado_especial = true;
+                }
+            }
+
+            if (letras.indexOf(teclado) == -1 && !teclado_especial) {
+                return false;
+            }
+        }
+        function correo(e) {
+            key = e.keyCode || e.which;
+            teclado = String.fromCharCode(key).toLowerCase();
+            letras = "abcdefghigklmnñopqrstuvwxyz@_-.012345456789";
+            especiales = "8-37-38-46";
+            teclado_especial = false;
+            for (var i in especiales) {
+                if (key == especiales[i]) {
+                    teclado_especial = true;
+                }
+            }
+
+            if (letras.indexOf(teclado) == -1 && !teclado_especial) {
+                return false;
+            }
+        }
+    </script>
+
+</head>
+<header class="header">
+    <div class="bg-dark">
+        <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+            <a class="navbar-brand text-white">
+                <img src="img/logotr.png" height="40px">
+            </a>
+            <button class="navbar-toggler" data-target="#menu" data-toggle="collapse" style="background-color: #f4f4f4;">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse mr-auto" id="menu">
+                <ul class="navg navbar-nav">
+                    <li class="nav-item">
+                        <a href="http://localhost:8085/Cenbiocli" class="nav-link">Inicio</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" data-target="desplegable" href="#">Cuenta</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="administrador.html">Perfil</a>
+                            <a class="dropdown-item" href="http://localhost:8085/Cenbiocli">Salir</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</header>
+
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="card mb-3" style="margin-top: 5rem; width: 30rem;">
+                <div class="text-center align-middle col-mg-8">
+                    <img src="img/logocol.png" width="300px" height="90px" class="rounded mt-2"
+                        alt="justify-content-center">
+                    <hr>
+                    <div class="alert alert-success col-md-12 mt-4 " role="alert">
+
+                        <h1><b>Iniciar Sesión</b></h1>
+                    </div>
+                    <div class="card-body">
+                        <div class="row ">
+                            <div class="col-md-12 mb-0">
+
+                                <form>
+                                    <div class="form-group">
+                                        <label for="L_Usuario">
+                                            <h3>Usuario</h3>
+                                        </label>
+                                        <input type="text" class="form-control text-center" id="L_Usuario"
+                                            aria-describedby="emailHelp">
+                                    </div>
+                                    <div class="form-group mb-2">
+                                        <label for="staticContraseña">
+                                            <h3>Contraseña</h3>
+                                        </label>
+                                        <input type="password" class="form-control  text-center" id="staticContraseña">
+                                    </div>
+                                    <button type="button" class="btn btn-primary">
+                                        <i class="fas fa-door-open"></i> <b>Ingresar</b>
+                                    </button>
+                                    <button type="button" class="btn btn-primary" data-toggle="modal"
+                                        data-dismiss="modal" data-target="#registro_usuario">
+                                        <i class="fas fa-save"></i> <b>Registrar</b>
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!--Ventana Emergente-->
+    <div class="modal fade" id="registro_usuario" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content row justify-content-center">
+                <div class="text-center">
+                    <img src="img/logocol.png" class="rounded img_pequeña col-11 mt-2" alt="Responsive image">
+                    <button type="button" class="close col-1" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-header border-top">
+                    <h1 class="modal-title col-lg-12 text-center">BIENVENIDO</h1>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="input-group justify-content-center mt-3">
+                            <input class="caja_2 text-center " type="text" placeholder="Nombre" />
+                            <input class="caja_2 text-center " id="caja_2" type="text" placeholder="Apellido" />
+                        </div>
+                        <div class="input-group justify-content-center">
+                            <input class="caja_p text-center  mt-3 " type="text" placeholder="Usuario" />
+                            <input class="caja_p text-center  mt-3" type="email" id="correo" placeholder="Correo" />
+                            <input class="caja_p text-center  mt-3" type="password" id="contra"
+                                placeholder="Contraseña" />
+                            <input class="caja_p text-center  mt-3" type="password" id="contra_confir"
+                                placeholder="Confirmar Contraseña" />
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer  justify-content-center">
+                    <button type="button" class="btn col-4 btn-space btn-primary">Registrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+<script type="text/javascript" src="js/all.js"></script>
+
+</html>
